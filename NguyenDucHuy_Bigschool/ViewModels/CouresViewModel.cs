@@ -26,5 +26,6 @@ namespace NguyenDucHuy_Bigschool.ViewModels
             //return DateTime.Parse(string.Format(Date + " " + Time));
             return DateTime.ParseExact(Date + " " + Time, "dd/MM/yyyy hh:mm", CultureInfo.InvariantCulture);
         }
+        //trang 24
     }
 }
