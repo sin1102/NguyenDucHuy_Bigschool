@@ -18,6 +18,7 @@ namespace NguyenDucHuy_Bigschool.Controllers
         }
         // GET: Coures
         [Authorize]
+        
         public ActionResult Create()
         {
             var viewModel = new CouresViewModel
@@ -28,6 +29,7 @@ namespace NguyenDucHuy_Bigschool.Controllers
         }
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CouresViewModel viewModel)
         {
             if (!ModelState.IsValid)
