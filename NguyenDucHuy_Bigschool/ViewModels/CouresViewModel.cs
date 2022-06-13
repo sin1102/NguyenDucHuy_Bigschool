@@ -10,6 +10,7 @@ namespace NguyenDucHuy_Bigschool.ViewModels
 {
     public class CouresViewModel
     {
+        public int Id { get; set; }
         [Required]
         public String Place { get; set; }
         [Required]
@@ -28,6 +29,11 @@ namespace NguyenDucHuy_Bigschool.ViewModels
         }
         //trang 24
         public IEnumerable<Course> UpcommingCourses { get; set; }
+
+        public string Heading { get; set; }
+
+        public String Action { get { return (Id != 0) ? "Update" : "Create"; } }
+
         public bool ShowAction { get; set; }
 
     }

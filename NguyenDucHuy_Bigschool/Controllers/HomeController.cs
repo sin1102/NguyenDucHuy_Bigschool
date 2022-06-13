@@ -21,7 +21,7 @@ namespace NguyenDucHuy_Bigschool.Controllers
             var upcomingCourse = _dbContext.Courses
                 .Include(c => c.Lecture)
                 .Include(c => c.Category)
-                .Where(c => c.DateTime < DateTime.Now);
+                .Where(c => c.DateTime > DateTime.Now);
             var viewModel = new CouresViewModel
             {
                 UpcommingCourses = upcomingCourse,

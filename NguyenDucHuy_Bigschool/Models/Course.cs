@@ -9,6 +9,7 @@ namespace NguyenDucHuy_Bigschool.Models
     public class Course
     {
         public int Id { get; set; }
+        public bool IsCanceled { get; set; }
         public ApplicationUser Lecture { get; set; }
         [Required]
         public String LectureId { get; set; }
