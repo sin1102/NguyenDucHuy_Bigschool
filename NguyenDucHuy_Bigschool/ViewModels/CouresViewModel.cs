@@ -27,5 +27,8 @@ namespace NguyenDucHuy_Bigschool.ViewModels
             return DateTime.ParseExact(Date + " " + Time, "dd/MM/yyyy hh:mm", CultureInfo.InvariantCulture);
         }
         //trang 24
+        public IEnumerable<Course> UpcommingCourses { get; set; }
+        public bool ShowAction { get; set; }
+
     }
 }

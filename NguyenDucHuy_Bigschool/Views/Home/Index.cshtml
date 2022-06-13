@@ -1,11 +1,11 @@
-﻿@model IEnumerable<NguyenDucHuy_Bigschool.Models.Course>
+﻿
 @{
     ViewBag.Title = "Home Page";
 }
 
 <div class="row">
     <ul>
-        @foreach(var item in Model){ 
+        @foreach(var item in Model.UpCommingCourses){ 
             <li>
                 <div class="date">
                     <div class="month">
@@ -18,6 +18,10 @@
                 <div class="detail">
                     <span class="lecture">
                         @item.Lecture.Name
+                        @if (item.ShowAction )
+                        {
+                            <button class="btn btn-default btn-sm js-toggle-attendace"></button>
+                        }
                     </span>
                     <span class="category">
                         @item.Category.Name
@@ -27,6 +31,7 @@
             </li>
         }
     </ul>
+
     @section scripts
         {
         <script>
