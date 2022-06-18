@@ -1,11 +1,15 @@
-﻿
+﻿@using Microsoft.AspNet.Identity;
+@using NguyenDucHuy_Bigschool.Models;
+@using System.Data.Entity;
+@using System.Linq;
+@model NguyenDucHuy_Bigschool.ViewModels.CouresViewModel
 @{
     ViewBag.Title = "Home Page";
 }
 
 <div class="row">
     <ul class="course">
-        @foreach(var item in Model.UpcommingCourses)
+        @foreach (var item in Model.UpcommingCourses)
         {
             <li>
                 <div class="date">
@@ -26,16 +30,29 @@
                     </span>
                     <span class="category">
                         @item.Category.Name
-                       
+
                     </span>
                     @if (Model.ShowAction)
                     {
-                        <button data-course-id="@item.Id" class="btn btn-default btn-sm js-toggle-attendace">Going?</button>
-                    }
+                        var user = User.Identity.GetUserId();
+                        ApplicationDbContext dbContext = new ApplicationDbContext();
+                        bool isGoing = dbContext.Attendances.Any(a => a.CourseId == item.Id && a.AttendeeId == user);
+                        <div>
+                            @if (isGoing)
+                            {
+                                <span class="text-danger">Da Dang Ky</span>
+                            }
+                            else
+                            {
+                            <button data-course-id="@item.Id" class="btn btn-default btn-sm js-toggle-attendace">Going?</button>
+                        }
+                </div>
+
+                }
 
                 </div>
             </li>
-        }
+}
     </ul>
 
     @section scripts
@@ -66,5 +83,5 @@
                 });
             });
         </script>
-        }
+    }
 </div>

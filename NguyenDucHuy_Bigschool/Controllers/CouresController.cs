@@ -69,6 +69,22 @@ namespace NguyenDucHuy_Bigschool.Controllers
         }
 
         [Authorize]
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+            var course = _dbContext.Followings
+                .Where(a => a.FolloweeId == userId)
+                .Select(a => a.FollowerId)
+                .ToList();
+            var 
+            var viewModel = new CouresViewModel
+            {
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
+        }
+
+        [Authorize]
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();

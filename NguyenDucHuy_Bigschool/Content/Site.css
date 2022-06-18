@@ -13,16 +13,16 @@
    will truncate terms that are too long to fit in the left column 
 */
 
-.navber-inverse {
+.navbar-inverse {
     background-color: #d41d50;
     border-color: #fbf6f6;
 }
 
-    .navber-inverse .navbar-nav > li > a {
+    .navbar-inverse .navbar-nav > li > a {
         color: white;
     }
 
-    .navber-inverse .navbar-brand {
+    .navbar-inverse .navbar-brand {
         color: white;
     }
 

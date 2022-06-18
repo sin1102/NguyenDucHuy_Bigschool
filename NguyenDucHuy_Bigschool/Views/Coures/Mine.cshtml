@@ -9,28 +9,31 @@
 <ul class="course">
     @foreach (var item in Model)
     {
-        <li>
-            <div class="date">
-                <div class="month">
-                    @item.DateTime.ToString("MM")
+        if (!item.IsCanceled)
+        {
+            <li>
+                <div class="date">
+                    <div class="month">
+                        @item.DateTime.ToString("MM")
+                    </div>
+                    <div class="day">
+                        @item.DateTime.ToString("dd")
+                    </div>
                 </div>
-                <div class="day">
-                    @item.DateTime.ToString("dd")
+                <div class="detail">
+                    <span class="lecture">
+                        @item.Lecture.Name
+                    </span>
+                    <span class="category">
+                        @item.Category.Name
+                    </span>
                 </div>
-            </div>
-            <div class="detail">
-                <span class="lecture">
-                    @item.Lecture.Name
-                </span>
-                <span class="category">
-                    @item.Category.Name
-                </span>
-            </div>
-            <div class="action">
-                <a href="@Url.Action("Edit", "Coures", new { id = item.Id})">Edit</a>
-                <a href="#" class="js-canceled-course" data-course-id="@item.Id">Cancel</a>
-            </div>
-        </li>
+                <div class="action">
+                    <a href="@Url.Action("Edit", "Coures", new { id = item.Id})">Edit</a>
+                    <a href="#" class="js-canceled-course" data-course-id="@item.Id">Cancel</a>
+                </div>
+            </li>
+        }
     }
     @section scripts
 {
