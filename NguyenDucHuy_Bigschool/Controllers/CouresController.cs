@@ -18,6 +18,7 @@ namespace NguyenDucHuy_Bigschool.Controllers
             _dbContext = new ApplicationDbContext();
         }
         // GET: Coures
+        //cham bai
         [Authorize]
         
         public ActionResult Create()
@@ -76,7 +77,7 @@ namespace NguyenDucHuy_Bigschool.Controllers
                 .Where(a => a.FolloweeId == userId)
                 .Select(a => a.FollowerId)
                 .ToList();
-            var 
+            
             var viewModel = new CouresViewModel
             {
                 ShowAction = User.Identity.IsAuthenticated
